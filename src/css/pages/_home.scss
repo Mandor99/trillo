@@ -1,0 +1,326 @@
+.home__content {
+	display: flex;
+
+	@include mob {
+		flex-direction: column;
+	}
+
+	.sidebar {
+		flex-basis: 20%;
+		background-color: $darkColor;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		@include mob {
+			flex: 1 1 100%;
+			flex-direction: row;
+		}
+	}
+	.hotel__overview {
+		flex: 1;
+
+		.gallery {
+			display: flex;
+
+			img {
+				height: 100%;
+			}
+		}
+
+		.rating {
+			display: flex;
+			align-items: center;
+			background-color: $whiteColor;
+			border-bottom: $border-b;
+
+			h1 {
+				letter-spacing: 0.1rem;
+				color: $lightDark;
+				text-transform: uppercase;
+				font-weight: 500;
+				padding: 0 1.5rem;
+				font-size: 1.5rem;
+
+				@include mob {
+					font-size: 0.7rem;
+					padding: 0 0.5rem;
+				}
+			}
+
+			&__stars {
+				margin-right: auto;
+				display: flex;
+			}
+
+			.location {
+				display: flex;
+				gap: 0.2rem;
+				padding: 0 1.5rem;
+
+				@include mob {
+					padding: 0 0.9rem;
+				}
+
+				&__icon {
+					width: 1.1rem;
+
+					@include mob {
+						width: 0.8rem;
+						height: 1.1rem;
+					}
+				}
+
+				&__city {
+					color: $mainColor;
+					border-bottom: 1px solid currentColor;
+					font-size: 0.8rem;
+
+					@include mob {
+						font-size: 0.6rem;
+					}
+
+					&:hover {
+						animation: zoom 1s infinite;
+						color: $darkColor;
+					}
+				}
+			}
+
+			&__votes {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				background-color: $mainColor;
+				color: $whiteColor;
+				padding: 0 1.25rem;
+
+				@include mob {
+					padding: 0 0.8rem;
+				}
+
+				&--rate {
+					font-size: 1.4rem;
+					font-weight: normal !important;
+
+					@include mob {
+						font-size: 0.9rem;
+					}
+				}
+
+				&--users {
+					font-size: 0.53rem;
+					font-weight: normal;
+					text-transform: uppercase;
+					margin-top: -0.5rem;
+
+					@include mob {
+						font-size: 0.35rem;
+					}
+				}
+			}
+		}
+		svg {
+			$size: 1.1rem;
+			width: $size;
+			height: $size;
+			fill: $mainColor;
+
+			@include mob {
+				$size: 0.8rem;
+				width: $size;
+				height: $size;
+			}
+		}
+
+		.hotel__preview {
+			padding: 4rem 2rem 0;
+			display: flex;
+			gap: 2rem;
+			justify-content: space-between;
+
+			@include mob {
+				flex-direction: column;
+				padding: 2rem 1rem 0;
+				font-size: 70%;
+			}
+
+			&--offers {
+				background-color: $whiteColor;
+				box-shadow: $shadowLight;
+				padding: 1.7rem;
+				flex: 0 0 60%;
+
+				@include mob {
+					padding: 1rem;
+				}
+
+				&-intro p {
+					color: $lightDark;
+					text-transform: capitalize;
+					font-size: 0.9rem;
+					line-height: 1.2;
+
+					&:not(:last-of-type) {
+						margin-bottom: 1.5rem;
+					}
+				}
+
+				&-features {
+					margin: 2.5rem 0;
+					padding: 1.7rem 0;
+					border-bottom: $border-b;
+					border-top: $border-b;
+					display: flex;
+					flex-wrap: wrap;
+				}
+
+				&-feature {
+					flex-basis: 50%;
+					color: $lightDark;
+
+					&::before {
+						content: '';
+						display: inline-block;
+						width: 0.9rem;
+						height: 0.8rem;
+						background-color: $lightMainColor;
+						mask-image: url('../../img/chevron-right.svg');
+						mask-size: cover;
+						margin-right: 0.4rem;
+					}
+				}
+			}
+
+			&--guests {
+				display: flex;
+				// align-items: center;
+
+				&-friends {
+					color: $lightDark;
+					margin-right: auto;
+				}
+
+				&-pictures {
+					display: flex;
+					img {
+						$size: 2.5rem;
+						width: $size;
+						height: $size;
+						border-radius: 50%;
+						border: 3px solid $whiteColor;
+						box-sizing: content-box;
+
+						&:not(:last-of-type) {
+							margin-right: -1rem;
+						}
+					}
+				}
+			}
+
+			&--comments {
+				flex-grow: 1;
+				position: relative;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+			}
+
+			&--comment {
+				background-color: $whiteColor;
+				padding: 1.5rem;
+				box-shadow: $shadow-less;
+				position: relative;
+				overflow: hidden;
+
+				&::before {
+					content: '\201c';
+					position: absolute;
+					font-family: sans-serif;
+					line-height: 1;
+					top: -3.5rem;
+					left: -1rem;
+					font-size: 20rem;
+					color: lighten($lightDark, 33%);
+					z-index: 1;
+				}
+
+				&:not(:last-child) {
+					margin-bottom: 2.5rem;
+				}
+
+				.user-comment {
+					color: $lightDark;
+					text-transform: capitalize;
+					font-size: 0.9rem;
+					line-height: 1.2;
+					margin-bottom: 1.5rem;
+					position: relative;
+					z-index: 5;
+				}
+
+				.user-data {
+					display: flex;
+					align-items: center;
+					gap: 0.5rem;
+
+					.comment-data {
+						.user-name {
+							text-transform: uppercase;
+							color: $darkColor;
+							font-size: 0.8rem;
+						}
+
+						.comment-date {
+							font-weight: 500;
+							color: $lightDark;
+							font-size: 0.7rem;
+							text-transform: capitalize;
+						}
+					}
+
+					.user-rate {
+						margin-left: auto;
+						color: $mainColor;
+						font-size: 1.5rem;
+					}
+				}
+
+				img {
+					$size: 3.5rem;
+					width: $size;
+					height: $size;
+					border-radius: 50%;
+					border: 2px solid $whiteColor;
+				}
+			}
+
+			.btn-link {
+				position: relative;
+				color: $mainColor;
+				border-bottom: 1px solid $mainColor;
+				font-size: 0.8rem;
+				align-self: center;
+				transition: all 0.2s ease-in-out;
+				text-align: center;
+
+				&:hover {
+					animation: zoom 1s infinite;
+					color: $darkColor;
+
+					&::after {
+						margin-left: 10px;
+					}
+				}
+
+				&::after {
+					content: '\2192';
+					color: currentColor;
+					font-size: 1rem;
+					margin-left: 0;
+					transition: margin 0.2s ease-in-out;
+				}
+			}
+		}
+	}
+}

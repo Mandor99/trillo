@@ -1,0 +1,97 @@
+.sidebar__content {
+	color: $whiteColor;
+
+	@include mob {
+		flex: 1;
+	}
+
+	.items {
+		margin-top: 3rem;
+
+		@include mob {
+			display: flex;
+			margin: 0;
+			flex: 1 1 100%;
+			justify-content: center;
+		}
+
+		.item {
+			padding: 0.5rem 0rem 0.5rem 1.5rem;
+			margin-bottom: 0.5rem;
+			position: relative;
+			z-index: 10;
+
+			@include mob {
+				margin: 0;
+				flex: 1;
+				// padding: 0.3rem 0 0.3rem 1rem;
+			}
+
+			&:not(:last-child) {
+				@include mob {
+					margin-right: 0.5rem;
+				}
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 3px;
+				background-color: $mainColor;
+				transform: scaleY(0);
+				transition: transform 0.2s, width 0.4s 0.2s cubic-bezier(0, 0.78, 1, 1);
+			}
+
+			&:hover::before,
+			&--active::before {
+				transform: scaleY(1);
+				width: 100%;
+			}
+
+			&__title {
+				text-transform: uppercase;
+				font-size: 1rem;
+				letter-spacing: 0.1em;
+
+				@include mob {
+					font-size: 0.6rem;
+					font-weight: bold;
+				}
+			}
+			&__link {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				position: relative;
+				z-index: 11;
+
+				@include mob {
+					flex-direction: column;
+				}
+			}
+		}
+	}
+
+	svg {
+		$size: 1.5rem;
+		width: $size;
+		height: $size;
+		fill: currentColor;
+	}
+}
+
+.copyrights {
+	color: $darkWhite;
+	font-size: 0.8rem;
+	font-weight: normal;
+	text-align: center;
+	padding: 1.5rem 0.5rem;
+	margin-bottom: 3rem;
+
+	@include mob {
+		display: none;
+	}
+}

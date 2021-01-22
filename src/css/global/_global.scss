@@ -1,0 +1,79 @@
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: 100%;
+
+	@include tab {
+		font-size: 70%;
+	}
+}
+body {
+	// overflow: hidden;
+	// min-height: 100vh;
+	background-image: linear-gradient(
+		to right bottom,
+		$lightMainColor,
+		$darkMainColor
+	);
+	font-family: 'Cairo', sans-serif;
+}
+.container {
+	width: 90%;
+	margin: 2rem auto;
+	background-color: lighten($darkWhite, 7%);
+	box-shadow: $shadowDark;
+	min-height: 50rem;
+
+	@include tab {
+		width: 100%;
+		margin: 0 auto;
+	}
+	@include mob {
+		width: 100%;
+		margin: 0 auto;
+	}
+}
+.img-responsive {
+	width: 100%;
+	object-fit: cover;
+}
+input {
+	font-family: inherit;
+	outline: none;
+	border: 1px solid $darkWhite;
+	background-color: $darkWhite;
+	border-radius: 20px;
+	padding: 0.2rem 1rem;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+::placeholder {
+	font-weight: normal;
+	opacity: 0.7;
+}
+.btn {
+	background-color: $darkWhite;
+	border: none;
+	outline: none;
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+	}
+}
+ul {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+}

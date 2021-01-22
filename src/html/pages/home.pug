@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Home
+        include ../components/links
+
+    body
+        .container
+            include ../layout/header
+
+            main.home__content
+                aside.sidebar
+                    include ../layout/sidebar
+                section.hotel__overview
+                    section.gallery
+                        -const hotelImages = 3
+                        -for(let i = 1; i <= hotelImages; i +=1)
+                            figure.gallery__image
+                                img(src=`../../img/hotel-${i}.jpg`, alt="hotel picture" class="img-responsive")
+                    section.rating
+                        .hotel--name
+                            h1 hotel las palmas
+                        figure.rating__stars
+                            -const starsNumber = 5
+                            -for(let star = 1; star <= starsNumber; star += 1)
+                                svg.rating__stars--icon
+                                    use(xlink:href="../../img/sprite.svg#icon-star")
+                        section.location
+                            svg.location__icon
+                                use(xlink:href="../../img/sprite.svg#icon-location-pin")
+                            a.location__city Albufeira, Portugal
+                        article.rating__votes
+                            p.rating__votes--rate 8.6
+                            p.rating__votes--users 430 votes
+                    section.hotel__preview
+                        section.hotel__preview--offers
+                            article.hotel__preview--offers-intro
+                                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nisi dignissimos debitis ratione sapiente saepe. Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate.
+                                p Accusantium cumque, quas, ut corporis incidunt deserunt quae architecto voluptate delectus, inventore iure aliquid aliquam.
+
+                            ul.hotel__preview--offers-features
+                                li.hotel__preview--offers-feature Close to the beach
+                                li.hotel__preview--offers-feature Free airport shuttle
+                                li.hotel__preview--offers-feature Air Conditioning and heating
+                                li.hotel__preview--offers-feature We speak all languages
+                                li.hotel__preview--offers-feature Breakfast included
+                                li.hotel__preview--offers-feature Free wifi in all rooms
+                                li.hotel__preview--offers-feature Pets allowed
+                                li.hotel__preview--offers-feature Perfect for families
+                            
+                            section.hotel__preview--guests
+                                p.hotel__preview--guests-friends Lucy and 3 other friends recommend this hotel.
+                                figure.hotel__preview--guests-pictures
+                                    img.img-responsive(src="../../img/user-3.jpg", alt="guest")
+                                    img.img-responsive(src="../../img/user-4.jpg", alt="guest")
+                                    img.img-responsive(src="../../img/user-5.jpg", alt="guest")
+                                    img.img-responsive(src="../../img/user-6.jpg", alt="guest")
+                        section.hotel__preview--comments
+
+                            -const userImage =['user-1', 'user-2']
+                            each val in userImage
+                                article.hotel__preview--comment
+                                    p.user-comment Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto dicta animi, totam, itaque officia ex.
+                                    figure.user-data
+                                        img(src=`../../img/${val}.jpg`, alt="user")
+                                        figcaption.comment-data
+                                            div
+                                                p.user-name nick smith
+                                                span.comment-date feb 23rd, 2017
+                                        div.user-rate: p 7.8
+                            a.btn-link show more
+                    include ../layout/footer
+        include ../components/scripts

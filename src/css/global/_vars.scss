@@ -1,0 +1,14 @@
+$mainColor: #eb2f64;
+$lightMainColor: lighten($mainColor, 5%);
+$darkMainColor: darken($mainColor, 20%);
+$whiteColor: #fff;
+$darkWhite: darken($whiteColor, 10%);
+$darkColor: #333;
+$lightDark: #999;
+$shadowDark: 0 1rem 4rem rgba(0, 0, 0, 0.3);
+$shadowLight: 1rem 2rem 5rem rgba(0, 0, 0, 0.09);
+$shadow-less: 1rem 1rem 1rem rgba(0, 0, 0, 0.07);
+$padding1: 70rem;
+$padding2: 50rem;
+$padding3: 30rem;
+$border-b: 1px solid lighten($lightDark, 35%);
